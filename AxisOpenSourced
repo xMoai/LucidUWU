@@ -1,0 +1,58 @@
+-- Lucid Anti Aim --
+-- Lucid.Lua Anti-Aim --
+repeat
+    wait()
+until game:IsLoaded()
+game:GetService("StarterGui"):SetCore("SendNotification",{
+            Title = "Lucid.Lua Anti-Aim", -- Required
+            Text = "Welcome To The Lucid.Lua Expereince!", -- Required
+        })
+    task.wait()
+        if FLUXUS_LOADED and isfluxusfunction and is_fluxus_function and isfluxusclosure and fluxus and Fluxus and is_fluxus_closure then
+            game:GetService("StarterGui"):SetCore("SendNotification",{
+                Title = "EXPLOIT - FLUXUS", -- Required
+                Text = "Fluxus Detected", -- Required
+            })
+        elseif KRNL_LOADED then
+            game:GetService("StarterGui"):SetCore("SendNotification",{
+                Title = "EXPLOIT - Krnl", -- Required
+                Text = "Krnl Detected", -- Required
+            })
+        elseif syn then
+            game:GetService("StarterGui"):SetCore("SendNotification",{
+                Title = "EXPLOIT - Synapse X", -- Required
+                Text = "Synapse Detected", -- Required
+            })
+        else
+            game:GetService("StarterGui"):SetCore("SendNotification",{
+                Title = "Unknown Exploit", -- Required
+                Text = "Your Exploit is not registered, This may be not safe.", -- Required
+            })
+        end
+
+game:GetService("RunService").Heartbeat:Connect(function()
+        if getgenv().toggle then
+                local vel = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
+                game:GetService("RunService").RenderStepped:Wait()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = vel
+        end
+end)
+
+game:GetService("Players").LocalPlayer:GetMouse().KeyDown:Connect(function(keyPressed)
+        if keyPressed == string.lower(getgenv().key) then
+                pcall(function()
+                        if getgenv().toggle == true then
+                                getgenv().toggle = false
+                                game.StarterGui:SetCore("SendNotification", {
+                                        Title = "Axis Anti-Aim",
+                                        Text = "AA Enabled" })
+                        elseif getgenv().toggle == false then
+                                getgenv().toggle = true
+                                game.StarterGui:SetCore("SendNotification", {
+                                        Title = "Axis Anti-Aim",
+                                        Text = "AA Disabled" })
+                        end
+                end)
+        end
+end)
